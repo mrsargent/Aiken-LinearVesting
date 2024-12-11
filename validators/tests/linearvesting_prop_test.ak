@@ -139,7 +139,7 @@ type PartialUnlockTest {
 }
 
 fn generate_partial_unlock_test() -> Fuzzer<PartialUnlockTest> {
-  fuzz.map9(
+  fuzz.map8(
     utils_test.generate_address(),
     utils_test.generate_script_address(),
     utils_test.generate_outref(),
@@ -147,19 +147,8 @@ fn generate_partial_unlock_test() -> Fuzzer<PartialUnlockTest> {
     utils_test.generate_outref(),
     utils_test.generate_policy_id(),
     utils_test.generate_token_name(),
-    fuzz.int_between(80, 100),
     fuzz.int_between(50, 200),
-    fn(
-      addr,
-      script_addr,
-      out_ref1,
-      out_ref2,
-      out_ref3,
-      pid,
-      tn,
-      token_qty,
-      time_interval,
-    ) {
+    fn(addr, script_addr, out_ref1, out_ref2, out_ref3, pid, tn, time_interval) {
       let inputs: List<Input> =
         [
           Input {

@@ -13,7 +13,7 @@ pub type AssetClass {
 }
 
 //******************************************
-//********* rewards validator types ********
+//*********  linear vesting datum ********
 //******************************************
 pub type VestingDatum {
   beneficiary: Address,
